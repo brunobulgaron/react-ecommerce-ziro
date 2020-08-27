@@ -1,14 +1,14 @@
 import React from 'react'
 import { Product, ProductPicture, ProductInfo, BuyBtn } from './style';
 
-function ProductCard() {
+function ProductCard(props) {
   return (
     <Product>
-      <ProductPicture src={this.props.picture} alt="product picture" srcset=""/>
+      <ProductPicture src={props.photo} alt="product picture" srcset=""/>
       <ProductInfo>
         <div>
-          <h4>{this.props.price}</h4>
-          <span>{this.props.quantity}</span>
+          <h4>R$ {props.price}</h4>
+          <span>{props.quantity} unidade(s) disponível</span>
         </div>
         <div>
           <BuyBtn>

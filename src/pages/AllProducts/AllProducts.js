@@ -5,11 +5,11 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import { ProductsListText, ProductsWrapper } from './style';
 
 function AllProducts() {
-  const [product, setProduct] = useState({ products: [] })
+  const [product, setProduct] = useState([])
 
   useEffect(() => {
     const getAllProducts = async () => {
-      const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/hello');
+      const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/getAllProducts');
 
       setProduct(result.data);
     };
@@ -22,9 +22,10 @@ function AllProducts() {
     <div>
       <ProductsListText>Lista de Produtos</ProductsListText>
       <ProductsWrapper>
-        {product.products.map(eachProduct => (
+        {product.map(eachProduct => (
           <ProductCard
             key={eachProduct.id}
+            photo={eachProduct.photo}
             price={eachProduct.price}
             quantity={eachProduct.quantity}
           />
