@@ -2,6 +2,7 @@ exports.handler = async event => {
   import firebase from "firebase/app";
   import "firebase/auth";
   import "firebase/firestore";
+  console.log("oi");
 
   const querySnapshot = await firebase.firestore().collection('products').get();
 
