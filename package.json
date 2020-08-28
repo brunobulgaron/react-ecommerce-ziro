@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "functions": "cd functions/test && npm install"
+    "functions": "cd functions/endpoints && npm install"
   },
   "keywords": [],
   "author": "Bruno Bulgaron",
