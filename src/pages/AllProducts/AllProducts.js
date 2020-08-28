@@ -27,7 +27,6 @@ function AllProducts() {
 
   useEffect(() => {
     const getAllProducts = async () => {
-      setTimeout(() => setLoading(false), 2000);
       const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/getAllProducts');
 
       setProduct(result.data);
