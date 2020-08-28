@@ -5,10 +5,11 @@ const { FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY } = process.env
 admin.initializeApp({
   credential: admin.credential.cert({
     client_email: FIREBASE_CLIENT_EMAIL,
-    private_key:
-      FIREBASE_PRIVATE_KEY[0] === '-'
-        ? FIREBASE_PRIVATE_KEY
-        : JSON.parse(FIREBASE_PRIVATE_KEY),
+    // private_key:
+    //   FIREBASE_PRIVATE_KEY[0] === '-'
+    //     ? FIREBASE_PRIVATE_KEY
+    //     : JSON.parse(FIREBASE_PRIVATE_KEY),
+    private_key: FIREBASE_PRIVATE_KEY,
     project_id: 'ecommerce-ziro',
   }),
   databaseURL: 'https://ecommerce-ziro.firebaseio.com'
