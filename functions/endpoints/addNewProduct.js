@@ -4,11 +4,13 @@ const admin = require('./config');
 const db = admin.firestore();
 
 exports.handler = async (event, context, callback) => {
+  const data = JSON.parse(event.body);
+
   // Wait for the record to be added
   await db.collection("products").add({
-    photo: "https://www.thomann.de/pics/bdb/353428/10110937_800.jpg",
-    price: 999,
-    quantity: 1,
+    photo: data.photo,
+    price: data.price,
+    quantity: data.quantity,
   });
 
   // Returns a callback with 200 response and message

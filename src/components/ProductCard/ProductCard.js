@@ -4,7 +4,7 @@ import { Product, ProductPicture, ProductInfo, BuyBtn } from './style';
 function ProductCard(props) {
   return (
     <Product>
-      <ProductPicture src={props.photo} alt="product picture" srcset=""/>
+      <ProductPicture src={props.photo} alt="Foto do produto" srcset=""/>
       <ProductInfo>
         <div>
           <h4>R$ {props.price}</h4>
