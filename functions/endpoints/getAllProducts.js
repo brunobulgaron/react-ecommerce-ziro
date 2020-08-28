@@ -4,6 +4,8 @@ const admin = require('./config');
 const db = admin.firestore();
 
 exports.handler = async (event, context, callback) => {
+  console.log("getAllProducts log:", event);
+
   if(event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
