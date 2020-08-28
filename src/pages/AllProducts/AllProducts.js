@@ -27,7 +27,7 @@ function AllProducts() {
 
   // useEffect(() => {
   //   const getAllProducts = async () => {
-  //     const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/getAllProducts');
+  //     const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/test');
 
   //     setProduct(result.data);
   //   };
