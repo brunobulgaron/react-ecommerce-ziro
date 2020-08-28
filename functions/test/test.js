@@ -9,7 +9,7 @@ admin.initializeApp({
     //   FIREBASE_PRIVATE_KEY[0] === '-'
     //     ? FIREBASE_PRIVATE_KEY
     //     : JSON.parse(FIREBASE_PRIVATE_KEY),
-    private_key: FIREBASE_PRIVATE_KEY,
+    private_key: FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     project_id: 'ecommerce-ziro',
   }),
   databaseURL: 'https://ecommerce-ziro.firebaseio.com'
