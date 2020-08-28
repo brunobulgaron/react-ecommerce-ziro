@@ -14,8 +14,8 @@ export const Product = styled.div `
 `
 
 export const ProductPicture = styled.img `
-  width: 100%;
-  height: 90%;
+  width: 26rem;
+  height: 19.5rem;
   object-fit: cover;
   
   :hover {
