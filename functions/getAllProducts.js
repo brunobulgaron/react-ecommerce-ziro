@@ -1,6 +1,7 @@
 exports.handler = async event => {
-  const firebase = require('firebase/app');
-  const firestore = require('firebase/firestore');
+  import firebase from "firebase/app";
+  import "firebase/auth";
+  import "firebase/firestore";
 
   const querySnapshot = await firebase.firestore().collection('products').get();
 
