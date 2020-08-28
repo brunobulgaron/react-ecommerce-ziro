@@ -8,32 +8,32 @@ import { ProductsListText, ProductsWrapper } from './style';
 function AllProducts() {
   const [product, setProduct] = useState([]);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const querySnapshot = await firebase.firestore().collection('products').get();
-
-      const products = querySnapshot.docs.map(doc => {
-        return {
-          id: doc.id,
-          ...doc.data()
-        }
-      });
-
-      setProduct(products);
-    };
-
-    getProducts();
-  }, [])
-
   // useEffect(() => {
-  //   const getAllProducts = async () => {
-  //     const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/test');
+  //   const getProducts = async () => {
+  //     const querySnapshot = await firebase.firestore().collection('products').get();
 
-  //     setProduct(result.data);
+  //     const products = querySnapshot.docs.map(doc => {
+  //       return {
+  //         id: doc.id,
+  //         ...doc.data()
+  //       }
+  //     });
+
+  //     setProduct(products);
   //   };
 
-  //   getAllProducts();
-  // }, []);
+  //   getProducts();
+  // }, [])
+
+  useEffect(() => {
+    const getAllProducts = async () => {
+      const result = await axios('https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/endpoints/getAllProducts');
+
+      setProduct(result.data);
+    };
+
+    getAllProducts();
+  }, []);
 
   return (
     <div>
