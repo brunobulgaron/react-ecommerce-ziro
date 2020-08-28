@@ -4,13 +4,13 @@ const admin = require('./config');
 const db = admin.firestore();
 
 exports.handler = async (event, context, callback) => {
-  if(event.method === 'OPTIONS') {
+  if(event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
       "Access-Control-Allow-Origin": "*"
     }
   }
-  
+
   const data = JSON.parse(event.body);
 
   // Wait for the record to be added
