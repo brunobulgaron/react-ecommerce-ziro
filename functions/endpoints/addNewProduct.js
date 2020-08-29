@@ -27,8 +27,9 @@ exports.handler = async (event, context, callback) => {
     statusCode: 200,
     headers: {
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": "http://localhost",
-      "Access-Control-Allow-Methods": "POST"
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Methods": "OPTIONS",
     },
     body: JSON.stringify({
       data: "Produto adicionado com sucesso!",
