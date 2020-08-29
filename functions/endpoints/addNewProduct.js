@@ -9,7 +9,9 @@ exports.handler = async (event, context, callback) => {
   if(event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Methods": "OPTIONS"
     }
   }
 
@@ -27,8 +29,7 @@ exports.handler = async (event, context, callback) => {
     statusCode: 200,
     headers: {
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": "https://ecommerce-ziro-bruno.netlify.app",
-      "Access-Control-Allow-Methods": "POST"
+      "Access-Control-Allow-Origin": "*"
     },
     body: JSON.stringify({
       data: "Produto adicionado com sucesso!",

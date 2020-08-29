@@ -9,7 +9,9 @@ exports.handler = async (event, context, callback) => {
   if(event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Methods": "OPTIONS"
     }
   }
 
