@@ -12,7 +12,7 @@ exports.handler = async (event, context, callback) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
-        "Access-Control-Request-Headers": "Content-Type"
+        "Access-Control-Allow-Headers": "Content-Type"
       }
     };
   };
