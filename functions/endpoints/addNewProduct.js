@@ -27,7 +27,7 @@ exports.handler = async (event, context, callback) => {
     statusCode: 200,
     headers: {
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": "https://mystifying-chandrasekhar-4d2fb6.netlify.app",
+      "Access-Control-Allow-Origin": "http://localhost",
       "Access-Control-Allow-Methods": "POST"
     },
     body: JSON.stringify({
