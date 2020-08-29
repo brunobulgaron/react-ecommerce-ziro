@@ -11,7 +11,8 @@ exports.handler = async (event, context, callback) => {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*"
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Request-Headers": "Content-Type"
       }
     };
   };
