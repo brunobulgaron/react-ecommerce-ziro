@@ -10,4 +10,4 @@ status = 200
 [[headers]]
   for = "/*"
     [headers.values]
-    Access-Control-Allow-Origin = "http://localhost:8080"
+    Access-Control-Allow-Origin = "https://ecommerce-ziro-bruno.netlify.app"
