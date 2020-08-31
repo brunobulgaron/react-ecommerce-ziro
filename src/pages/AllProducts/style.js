@@ -10,6 +10,32 @@ export const ProductsListText = styled.p `
 
 export const ProductsWrapper = styled.div `
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
+  grid-template-columns: 1fr;
+
+  @media (max-width: 870px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const CartPreview = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ProductsGrid = styled.div `
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 1200px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 790px) {
+    display: flex;
+    flex-direction: column;
+  }
 `

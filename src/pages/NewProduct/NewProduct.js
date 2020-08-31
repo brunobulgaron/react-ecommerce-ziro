@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { NewProductText, NewProductWrapper } from "./style";
+import { NewProductText, NewProductWrapper, CustomLabel, ButtonsWrapper } from "./style";
 
-import firebase from 'firebase/app';
 import axios from "axios";
 
 // Custom Hook useForm
@@ -21,7 +20,8 @@ function NewProduct() {
   const { form, onChange } = useForm({
     price: '',
     quantity: '',
-    photo: ''
+    photo: '',
+    name: ''
   });
 
   const handleInputChange = event => {
@@ -36,7 +36,8 @@ function NewProduct() {
     const request = await axios.post("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/addNewProduct", {
       price: form.price,
       quantity: form.quantity,
-      photo: form.photo
+      photo: form.photo,
+      name: form.name
     });
 
     alert("Produto adicionado com sucesso!");
@@ -47,7 +48,18 @@ function NewProduct() {
       <NewProductText>Adicionar Novo Produto</NewProductText>
       <NewProductWrapper>
         <form onSubmit={handleFormSubmit}>
-          <label htmlFor="price">Preço</label>
+          <CustomLabel htmlFor="name">Nome</CustomLabel>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Digite o nome do produto"
+            required
+            value={form.name}
+            onChange={handleInputChange}
+          />
+
+          <CustomLabel htmlFor="price">Preço</CustomLabel>
           <input
             type="number"
             name="price"
@@ -59,7 +71,7 @@ function NewProduct() {
             onChange={handleInputChange}
           />
 
-          <label htmlFor="quantity">Quantidade</label>
+          <CustomLabel htmlFor="quantity">Quantidade</CustomLabel>
           <input
             type="number"
             name="quantity"
@@ -71,18 +83,21 @@ function NewProduct() {
             onChange={handleInputChange}
           />
 
-          <label htmlFor="photo">Foto</label>
+          <CustomLabel htmlFor="photo">Foto</CustomLabel>
           <input
             type="text"
             // accept="image/*"
             name="photo"
             id="photo"
+            placeholder="Coloque a URL da foto"
             required
             value={form.photo}
             onChange={handleInputChange}
           />
 
-          <input type="submit" value="Adicionar" />
+          <ButtonsWrapper>
+            <input type="submit" value="Adicionar" />
+          </ButtonsWrapper>
         </form>
       </NewProductWrapper>
     </>

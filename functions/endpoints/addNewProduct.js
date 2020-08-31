@@ -4,8 +4,6 @@ const admin = require('./config');
 const db = admin.firestore();
 
 exports.handler = async (event, context, callback) => {
-  console.log("addNewProduct log:", event);
-  
   if(event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -24,6 +22,7 @@ exports.handler = async (event, context, callback) => {
     photo: data.photo,
     price: data.price,
     quantity: data.quantity,
+    name: data.name
   });
 
   // Returns a callback with 200 response and message

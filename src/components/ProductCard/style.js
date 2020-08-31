@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Product = styled.div `
   display: flex;
   flex-direction: column;
-  height: 25rem;
+  height: 30rem;
   margin: 2rem;
   border-bottom-color: #fffef5;
   border-bottom-left-radius: 10px;
@@ -14,7 +14,7 @@ export const Product = styled.div `
 `
 
 export const ProductPicture = styled.img `
-  width: 26rem;
+  width: 100%;
   height: 19.5rem;
   object-fit: cover;
   
@@ -23,12 +23,21 @@ export const ProductPicture = styled.img `
   }
 `
 
+export const ProductName = styled.div `
+  /* padding: 1rem; */
+  /* border: 1px solid green; */
+  /* margin-bottom: 1rem; */
+`
+
 export const ProductInfo = styled.div `
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 1.2rem;
-  background-color: #fffef5;
+  padding: 1.1rem;
+  background-color: #fff;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   

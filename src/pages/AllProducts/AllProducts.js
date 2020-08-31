@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { ProductsListText, ProductsWrapper } from "./style";
 
-function AllProducts() {
+import { ProductsListText, ProductsWrapper, ProductsGrid, CartPreview } from "./style";
+
+function AllProducts({cartProducts, setCartProducts}) {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -17,6 +18,41 @@ function AllProducts() {
     getAllProducts();
   }, []);
 
+  const onAddProductToCart = (productId) => {
+    const productsInCart = cartProducts.find(product => productId === product.id);
+
+    if(productsInCart){
+      const newProductsInCart = cartProducts.map(product => {
+        if(productId === product.id){
+          return {
+            ...product,
+            quantity: product.quantity + 1
+          };
+        };
+
+        return product;
+      });
+
+      setCartProducts(newProductsInCart);
+    }else{
+      const productToAdd = product.find(product => productId === product.id);
+
+      const productsInCart = [...cartProducts, { ...productToAdd, quantity: 1 }];
+
+      setCartProducts(productsInCart);
+    };
+  };
+
+  const getTotalValue = () => {
+    let totalValue = 0;
+
+    for(let product of cartProducts){
+      totalValue += product.price * product.quantity
+    }
+
+    return totalValue;
+  };
+
   return (
     <div>
       {product < 1 ? (
@@ -24,16 +60,24 @@ function AllProducts() {
       ) : (
         <>
           <ProductsListText>Lista de Produtos</ProductsListText>
-          <ProductsWrapper>
-            {product.map((eachProduct) => (
-              <ProductCard
-                key={eachProduct.id}
-                photo={eachProduct.photo}
-                price={eachProduct.price}
-                quantity={eachProduct.quantity}
-              />
-            ))}
-          </ProductsWrapper>
+            <ProductsWrapper>
+              <CartPreview>
+                <p>Carrinho: {cartProducts.length} item(s)</p>
+                <p>Total: R$ {getTotalValue()} reais</p>
+              </CartPreview>
+              <ProductsGrid>
+                {product.map((eachProduct) => (
+                  <ProductCard
+                    key={eachProduct.id}
+                    name={eachProduct.name}
+                    photo={eachProduct.photo}
+                    price={eachProduct.price}
+                    quantity={eachProduct.quantity}
+                    onAddProductToCart={() => onAddProductToCart(eachProduct.id)}
+                  />
+                ))}
+              </ProductsGrid>
+            </ProductsWrapper>
         </>
       )}
     </div>

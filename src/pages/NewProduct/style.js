@@ -16,14 +16,17 @@ export const NewProductWrapper = styled.div `
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 5rem;
     text-transform: uppercase;
-  }  
+  }
+
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 
   input[type=text],
   input[type=number] {
-  width: 60%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -33,7 +36,7 @@ export const NewProductWrapper = styled.div `
 }
 
   input[type=submit] {
-    width: 60%;
+    width: 100%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -56,4 +59,26 @@ export const NewProductText = styled.p `
   padding: 2rem 0;
   letter-spacing: .2rem;
   text-align: center;
+`
+
+export const CustomLabel = styled.label `
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: .7rem 0;
+`
+
+export const ButtonsWrapper = styled.div `
+  display: flex;
+  flex-direction: column;
+
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input {
+    font-weight: 500;
+  }
 `
