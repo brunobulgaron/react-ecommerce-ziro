@@ -1,8 +1,8 @@
 import React from 'react'
-import { Product, ProductPicture, ProductName, ProductInfo, BuyBtn } from './style';
-import Modal from '../Modal/Modal';
+import { Product, ProductPicture, DeleteBtn, ProductName, ProductInfo, BuyBtn } from './style';
 
 function ProductCard(props) {
+  
   return (
     <Product>
       <ProductPicture
@@ -25,6 +25,11 @@ function ProductCard(props) {
             <i className="fas fa-cart-plus"></i>
           </BuyBtn>
         </div>
+        <DeleteBtn
+          onClick={() => props.onDeleteProduct(props.id)}
+        >
+          Deletar
+        </DeleteBtn>
       </ProductInfo>
     </Product>
   );

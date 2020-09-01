@@ -4,7 +4,8 @@ import axios from "axios";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 import { ProductsListText, ProductsWrapper, ProductsGrid, CartPreview } from "./style";
-import Filter from "../../components/Filter/Filter";
+
+// import firebase from "firebase/app";
 
 function AllProducts({cartProducts, setCartProducts}) {
   const [product, setProduct] = useState([]);
@@ -18,6 +19,12 @@ function AllProducts({cartProducts, setCartProducts}) {
 
     getAllProducts();
   }, []);
+
+  const onDeleteProduct = async (productId) => {
+    await axios.post(`https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/${productId}`)
+
+    return alert("Teste");
+  };
 
   const onAddProductToCart = (productId) => {
     const productsInCart = cartProducts.find(product => productId === product.id);
@@ -66,7 +73,6 @@ function AllProducts({cartProducts, setCartProducts}) {
                 <p>Carrinho: {cartProducts.length} item(s)</p>
                 <p>Total: R$ {getTotalValue()} reais</p>
               </CartPreview>
-              <Filter />
               <ProductsGrid>
                 {product.map((eachProduct) => (
                   <ProductCard
@@ -76,6 +82,7 @@ function AllProducts({cartProducts, setCartProducts}) {
                     price={eachProduct.price}
                     quantity={eachProduct.quantity}
                     onAddProductToCart={() => onAddProductToCart(eachProduct.id)}
+                    onDeleteProduct={() => onDeleteProduct(eachProduct.id)}
                   />
                 ))}
               </ProductsGrid>

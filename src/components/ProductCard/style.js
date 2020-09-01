@@ -23,6 +23,16 @@ export const ProductPicture = styled.img `
   }
 `
 
+export const DeleteBtn = styled.button `
+  width: 100px;
+  height: 20px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #666;
+  cursor: pointer;
+`
+
 export const ProductName = styled.div `
   /* padding: 1rem; */
   /* border: 1px solid green; */
