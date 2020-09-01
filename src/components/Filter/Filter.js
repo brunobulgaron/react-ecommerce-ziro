@@ -4,7 +4,7 @@ import { FilterWrapper, CustomLabel, CustomNumInput } from "./style";
 function Filter(props) {
   return (
     <FilterWrapper>
-      <CustomLabel htmlFor="minFilter">Valor mínimo</CustomLabel>
+      <CustomLabel htmlFor="minFilter">Valor mínimo:</CustomLabel>
       <CustomNumInput
         type="number"
         id="minFilter"
@@ -12,7 +12,7 @@ function Filter(props) {
         value={props.minFilter}
       />
 
-      <CustomLabel htmlFor="maxFilter">Valor máximo</CustomLabel>
+      <CustomLabel htmlFor="maxFilter">Valor máximo:</CustomLabel>
       <CustomNumInput
         type="number"
         id="maxFilter"

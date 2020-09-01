@@ -16,7 +16,7 @@ exports.handler = async (event, context, callback) => {
   };
 
   // Wait for the record to be added
-  const snapshot = await db.collection('products').get();
+  const snapshot = await db.collection('products').orderBy("name", "asc").get();
 
   const products = snapshot.docs.map(doc => {
     return {

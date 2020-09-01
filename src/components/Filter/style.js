@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FilterWrapper = styled.div `
   margin-top: 1rem;
-  padding: 1.5rem;
+  padding: .5rem;
 `
 
 export const CustomLabel = styled.label `

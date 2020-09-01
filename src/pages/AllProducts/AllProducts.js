@@ -4,6 +4,7 @@ import axios from "axios";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 import { ProductsListText, ProductsWrapper, ProductsGrid, CartPreview } from "./style";
+import Filter from "../../components/Filter/Filter";
 
 function AllProducts({cartProducts, setCartProducts}) {
   const [product, setProduct] = useState([]);
@@ -65,6 +66,7 @@ function AllProducts({cartProducts, setCartProducts}) {
                 <p>Carrinho: {cartProducts.length} item(s)</p>
                 <p>Total: R$ {getTotalValue()} reais</p>
               </CartPreview>
+              <Filter />
               <ProductsGrid>
                 {product.map((eachProduct) => (
                   <ProductCard

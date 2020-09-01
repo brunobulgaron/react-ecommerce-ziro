@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import { SignUpText, SignUpWrapper, CustomLabel, ButtonsWrapper } from "./style";
 
 function SignUp() {
+  // const [signUpForm, setSignUpForm] = useState({});
+
   return (
     <>
       <SignUpText>Criar Nova Conta</SignUpText>

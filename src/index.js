@@ -21,6 +21,8 @@ let firebaseConfig = {
 
 export const app = firebase.initializeApp(firebaseConfig);
 
+export const auth = firebase.auth();
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

@@ -18,6 +18,15 @@ export const NewProductWrapper = styled.div `
     flex-direction: column;
     padding: 5rem;
     text-transform: uppercase;
+
+    p {
+      text-transform: initial;
+      font-size: .8rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 60.5%;
+      opacity: .5;
+    }
   }
 
   @media (max-width: 800px) {

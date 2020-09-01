@@ -25,7 +25,7 @@ function NewProduct() {
     photo: '',
     name: ''
   });
-  const [fileUrl, setFileUrl] = useState(null);
+  const [file, setFile] = useState();
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -33,26 +33,31 @@ function NewProduct() {
     onChange(name, value);
   };
 
-  const handleFileInputChange = async (event) => {
+  const handleFileInputChange = (event) => {
     const file = event.target.files[0];
+
+    setFile(file);
+  };
+
+  const handleStorageFile = async () => {
     const storageRef = app.storage().ref();
     const fileRef = storageRef.child(file.name);
     
     await fileRef.put(file);
-    setFileUrl(await fileRef.getDownloadURL());
-    console.log(fileRef);
+    const customURL = await fileRef.getDownloadURL();
+    
+    return customURL;
   };
-
-  // COMO SUBIR ARQUIVOS NO FIREBASE AO RODAR A FUNÇÃO ABAIXO ???
-  // POR ENQUANTO, SOBE SOZINHO COM A FUNÇÃO ACIMA...
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const downloadUrl = await handleStorageFile();
+
     await axios.post("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/addNewProduct", {
       price: form.price,
       quantity: form.quantity,
-      photo: fileUrl,
+      photo: downloadUrl,
       name: form.name
     });
 
@@ -98,17 +103,6 @@ function NewProduct() {
             value={form.quantity}
             onChange={handleInputChange}
           />
-
-          {/* <CustomLabel htmlFor="photo">Foto</CustomLabel>
-          <input
-            type="text"
-            name="photo"
-            id="photo"
-            placeholder="Coloque a URL da foto"
-            required
-            value={form.photo}
-            onChange={handleInputChange}
-          /> */}
           
           <CustomLabel htmlFor="photo">Foto</CustomLabel>
           <input
@@ -119,6 +113,7 @@ function NewProduct() {
             value={form.photo}
             onChange={handleFileInputChange}
           />
+          <p>Somente imagem com extensão .png</p>
 
           <ButtonsWrapper>
             <input type="submit" value="Adicionar" />
