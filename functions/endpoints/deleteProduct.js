@@ -15,7 +15,7 @@ exports.handler = async (event, context, callback) => {
     };
   };
 
-  const findDifference = (baseUrl, id) => {
+  let findDifference = (baseUrl, id) => {
     let diff = "";
     id.split('').forEach(function(val, i){
       if(val != baseUrl.charAt(i))
@@ -27,7 +27,7 @@ exports.handler = async (event, context, callback) => {
 
   let differenceOfId = findDifference("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/", event.path);
 
-  return console.log(differenceOfId);
+  console.log(differenceOfId);
   
   // const id = event.path;
 
