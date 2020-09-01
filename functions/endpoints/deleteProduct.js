@@ -27,13 +27,9 @@ exports.handler = async (event, context, callback) => {
 
   let differenceOfId = findDifference("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/", event.path);
 
-  console.log(differenceOfId);
-  
-  // const id = event.path;
-
   // Wait for the record to be removed
   if(confirm("Tem certeza que deseja deletar esse produto?")){
-    await db.collection("products").doc(`${id}`).delete();
+    await db.collection("products").doc(`${differenceOfId}`).delete();
 
     alert("Produto removido com sucesso.");
   }else{
