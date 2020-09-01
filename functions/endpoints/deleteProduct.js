@@ -15,9 +15,21 @@ exports.handler = async (event, context, callback) => {
     };
   };
 
-  const id = getId(event.path);
+  const findDifference = (baseUrl, id) => {
+    let diff = "";
+    id.split('').forEach(function(val, i){
+      if(val != baseUrl.charAt(i))
+        diff += val;
+    });
 
-  const data = JSON.parse(event.body);
+    return diff;
+  };
+
+  let differenceOfId = findDifference("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/", event.path);
+
+  return console.log(differenceOfId);
+  
+  // const id = event.path;
 
   // Wait for the record to be removed
   if(confirm("Tem certeza que deseja deletar esse produto?")){
