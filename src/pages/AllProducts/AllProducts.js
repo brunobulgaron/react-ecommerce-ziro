@@ -21,7 +21,7 @@ function AllProducts({cartProducts, setCartProducts}) {
   }, []);
 
   const onDeleteProduct = async (productId) => {
-    await axios.post(`https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/${productId}`)
+    await axios.delete(`https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/${productId}`)
 
     return alert("Teste");
   };
