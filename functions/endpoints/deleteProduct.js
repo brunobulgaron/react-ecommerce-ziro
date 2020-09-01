@@ -25,6 +25,8 @@ exports.handler = async (event, context, callback) => {
     return diff;
   };
 
+  console.log("event.path -->", event.path);
+
   let differenceOfId = findDifference("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/", event.path);
 
   // Wait for the record to be removed
