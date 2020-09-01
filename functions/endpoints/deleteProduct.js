@@ -32,9 +32,6 @@ exports.handler = async (event, context, callback) => {
   // Wait for the record to be removed
   await db.collection("products").doc(`${differenceOfId}`).delete();
 
-  alert("Produto removido com sucesso.");
-
-
   // Returns a callback with 200 response and message
   return callback(null, {
     statusCode: 200,
