@@ -20,6 +20,10 @@ function Nav() {
             <i className="fas fa-shopping-cart"></i>
             <Link to="/cart">Carrinho</Link>
           </HeaderLi>
+          <HeaderLi>
+          <i className="fas fa-user-circle"></i>
+            <Link to="/login">Conta</Link>
+          </HeaderLi>
         </HeaderUl>
       </HeaderWrapper>
     </div>

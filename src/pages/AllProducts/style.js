@@ -6,6 +6,11 @@ export const ProductsListText = styled.p `
   padding-top: 2rem;
   letter-spacing: .6rem;
   text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+    letter-spacing: initial;
+  }
 `
 
 export const ProductsWrapper = styled.div `

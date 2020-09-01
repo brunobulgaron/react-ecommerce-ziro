@@ -14,9 +14,13 @@ export const Logo = styled.h1 `
   font-size: 1.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  
+
   :hover {
-    cursor: pointer;
+    cursor: default;
+  }
+
+  @media (max-width: 600px){
+    display: none;
   }
 `
 
@@ -35,14 +39,28 @@ export const HeaderLi = styled.li `
   a {
     text-decoration: none;
     color: inherit;
+
+    @media (max-width: 600px) {
+      font-size: .85rem;
+    }
   }
   
   i {
     margin-right: .3rem;
+    
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
+
+  
   
   :hover {
     cursor: pointer;
     background-color: #f7dd00;
+
+    @media (max-width: 600px) {
+      cursor: default;
+    }
   }
 `

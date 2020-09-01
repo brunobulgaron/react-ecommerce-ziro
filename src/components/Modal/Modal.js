@@ -2,7 +2,7 @@ import React from 'react'
 
 function Modal({ selectedImg }) {
   return (
-    <div className="backdrop">
+    <div>
       <img src={selectedImg} alt="Foto do produto - modal" />
     </div>
   )

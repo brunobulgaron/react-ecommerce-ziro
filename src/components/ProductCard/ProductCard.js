@@ -1,10 +1,14 @@
 import React from 'react'
 import { Product, ProductPicture, ProductName, ProductInfo, BuyBtn } from './style';
+import Modal from '../Modal/Modal';
 
 function ProductCard(props) {
   return (
     <Product>
-      <ProductPicture src={props.photo} alt="Foto do produto" srcset=""/>
+      <ProductPicture
+        src={props.photo}
+        alt="Foto do produto"
+      />
       <ProductInfo>
         <ProductName>
           <p>{props.name}</p>

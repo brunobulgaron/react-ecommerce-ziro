@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { NewProductText, NewProductWrapper, CustomLabel, ButtonsWrapper } from "./style";
 
+import { app } from '../../index';
+
 import axios from "axios";
 
 // Custom Hook useForm
@@ -23,6 +25,7 @@ function NewProduct() {
     photo: '',
     name: ''
   });
+  const [fileUrl, setFileUrl] = useState(null);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -30,13 +33,26 @@ function NewProduct() {
     onChange(name, value);
   };
 
+  const handleFileInputChange = async (event) => {
+    const file = event.target.files[0];
+    const storageRef = app.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    
+    await fileRef.put(file);
+    setFileUrl(await fileRef.getDownloadURL());
+    console.log(fileRef);
+  };
+
+  // COMO SUBIR ARQUIVOS NO FIREBASE AO RODAR A FUNÇÃO ABAIXO ???
+  // POR ENQUANTO, SOBE SOZINHO COM A FUNÇÃO ACIMA...
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const request = await axios.post("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/addNewProduct", {
+    await axios.post("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/addNewProduct", {
       price: form.price,
       quantity: form.quantity,
-      photo: form.photo,
+      photo: fileUrl,
       name: form.name
     });
 
@@ -83,16 +99,25 @@ function NewProduct() {
             onChange={handleInputChange}
           />
 
-          <CustomLabel htmlFor="photo">Foto</CustomLabel>
+          {/* <CustomLabel htmlFor="photo">Foto</CustomLabel>
           <input
             type="text"
-            // accept="image/*"
             name="photo"
             id="photo"
             placeholder="Coloque a URL da foto"
             required
             value={form.photo}
             onChange={handleInputChange}
+          /> */}
+          
+          <CustomLabel htmlFor="photo">Foto</CustomLabel>
+          <input
+            type="file"
+            accept="image/png"
+            name="photo"
+            id="photo"
+            value={form.photo}
+            onChange={handleFileInputChange}
           />
 
           <ButtonsWrapper>

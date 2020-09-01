@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewProductWrapper = styled.div `
+export const SignUpWrapper = styled.div `
   display: flex;
   flex-direction: column;
   width: 50vw;
@@ -16,24 +16,50 @@ export const NewProductWrapper = styled.div `
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 5rem;
     text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 2rem;
+    font-size: .9rem;
+    opacity: .4;
+    text-transform: initial;
+  }
+
+  a {
+    text-decoration: none;
+    padding: .5rem 1.3rem;
+    border-bottom: 1px solid #555;
+    color: #555;
+    font-size: .9rem;
+    transition: .1s;
+
+    :hover {
+      background-color: #ccc;
+      border-bottom: 0;
+    }
   }
 
   @media (max-width: 800px) {
     width: 100vw;
   }
 
-  input[type=text],
-  input[type=number] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    @media (max-width: 600px) {
+      width: 80vw;
+    }
+  }
 
   input[type=submit] {
     width: 100%;
@@ -53,7 +79,7 @@ export const NewProductWrapper = styled.div `
   
 `
 
-export const NewProductText = styled.p `
+export const SignUpText = styled.p `
   font-weight: 300;
   font-size: 2.5rem;
   padding: 2rem 0;
@@ -67,9 +93,6 @@ export const NewProductText = styled.p `
 `
 
 export const CustomLabel = styled.label `
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   margin: .7rem 0;
 `
 

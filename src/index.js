@@ -6,6 +6,7 @@ import App from './components/App';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/storage";
 
 // Initialize Firebase
 let firebaseConfig = {
@@ -18,7 +19,7 @@ let firebaseConfig = {
   appId: "1:695232423614:web:f22ca772365f532da5a0ef"
 };
 
-firebase.initializeApp(firebaseConfig);
+export const app = firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <BrowserRouter>

@@ -56,7 +56,7 @@ function Cart(props) {
       {props.cartProducts < 1 ? (
         <>
           <EmptyCartText>Seu carrinho está vazio. :(</EmptyCartText>
-          <BagIcon className="fas fa-shopping-bag"></BagIcon>
+          <BagIcon className="fas fa-shopping-cart"></BagIcon>
         </>
       ) : (
         <CartWrapper>

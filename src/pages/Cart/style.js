@@ -15,6 +15,10 @@ export const CartWrapper = styled.div `
 
   @media (max-width: 800px) {
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
 `
@@ -25,6 +29,11 @@ export const CartText = styled.p `
   padding: 2rem 0;
   letter-spacing: .2rem;
   text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+    letter-spacing: initial;
+  }
 `
 
 export const EmptyCartText = styled.p `
@@ -54,6 +63,13 @@ export const CustomLi = styled.li `
 
   span {
     margin: 0 3rem;
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `
 
