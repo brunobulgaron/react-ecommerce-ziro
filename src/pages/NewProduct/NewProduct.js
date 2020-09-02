@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
+
 import { NewProductText, NewProductWrapper, CustomLabel, ButtonsWrapper } from "./style";
 
 import { app } from '../../index';
@@ -18,7 +20,7 @@ const useForm = (initialValues) => {
 };
 
 // Componente
-function NewProduct() {
+function NewProduct(props) {
   const { form, onChange } = useForm({
     price: '',
     quantity: '',
@@ -26,6 +28,13 @@ function NewProduct() {
     name: ''
   });
   const [file, setFile] = useState();
+  const history = useHistory();
+
+  useEffect(() => {
+    if(!props.currentUser){
+      history.push('/')
+    };
+  }, [props.currentUser]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;

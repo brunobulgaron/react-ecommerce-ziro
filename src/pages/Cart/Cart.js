@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
+
 import { CartText, EmptyCartText, BagIcon, CartWrapper, CustomUL, CustomLi, RemoveBtn, CheckoutWrapper, ClearCartBtn, CheckoutBtn } from "./style";
 
 function Cart(props) {
+  const history = useHistory();
+  
+  useEffect(() => {
+    if(!props.currentUser){
+      history.push('/')
+    };
+  }, [props.currentUser]);
+
   const getTotalValue = () => {
     let totalValue = 0;
 

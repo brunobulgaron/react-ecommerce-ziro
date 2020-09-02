@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import { Product, ProductPicture, DeleteBtn, ProductName, ProductInfo, BuyBtn } from './style';
 
 function ProductCard(props) {
@@ -25,11 +26,11 @@ function ProductCard(props) {
             <i className="fas fa-cart-plus"></i>
           </BuyBtn>
         </div>
-        <DeleteBtn
-          onClick={() => props.onDeleteProduct(props.id)}
-        >
-          Deletar
-        </DeleteBtn>
+          <DeleteBtn
+            onClick={() => props.onDeleteProduct(props.id)}
+          >
+            Deletar
+          </DeleteBtn>
       </ProductInfo>
     </Product>
   );

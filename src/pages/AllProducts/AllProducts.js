@@ -1,31 +1,24 @@
 import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 import { ProductsListText, ProductsWrapper, ProductsGrid, CartPreview } from "./style";
 
-// import firebase from "firebase/app";
-
 function AllProducts({cartProducts, setCartProducts}) {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    const getAllProducts = async () => {
-      const result = await axios.get("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/getAllProducts");
-
-      setProduct(result.data);
-    };
-
     getAllProducts();
   }, []);
 
-  const onDeleteProduct = async (productId) => {
-    await axios.delete(`https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/${productId}`)
+  const getAllProducts = async () => {
+    const result = await axios.get("https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/getAllProducts");
 
-    return alert("Teste");
+    setProduct(result.data);
   };
-
+  
   const onAddProductToCart = (productId) => {
     const productsInCart = cartProducts.find(product => productId === product.id);
 
@@ -59,6 +52,17 @@ function AllProducts({cartProducts, setCartProducts}) {
     }
 
     return totalValue;
+  };
+
+  const onDeleteProduct = async (productId) => {
+    if(confirm("Tem certeza que deseja deletar esse produto?")){
+      await axios.delete(`https://mystifying-chandrasekhar-4d2fb6.netlify.app/.netlify/functions/deleteProduct/${productId}`)
+      
+      getAllProducts();
+      alert("Produto removido com sucesso!");
+    }else {
+      return;
+    };
   };
 
   return (

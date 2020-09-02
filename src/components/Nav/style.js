@@ -36,6 +36,15 @@ export const HeaderLi = styled.li `
   padding: 1.5rem 1rem;
   transition: .2s;
 
+  button {
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: .95rem;
+    cursor: pointer;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

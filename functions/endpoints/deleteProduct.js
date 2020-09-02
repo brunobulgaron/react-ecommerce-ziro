@@ -16,16 +16,14 @@ exports.handler = async (event, context, callback) => {
   };
 
   let findDifference = (baseUrl, id) => {
-    let diff = "";
+    let difference = "";
     id.split('').forEach(function(val, i){
       if(val != baseUrl.charAt(i))
-        diff += val;
+        difference += val;
     });
 
-    return diff;
+    return difference;
   };
-
-  console.log("event.path -->", event.path);
 
   let differenceOfId = findDifference("/.netlify/functions/deleteProduct/", event.path);
 
