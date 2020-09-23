@@ -1,3 +1,5 @@
+import { get } from 'axios';
+
 exports.handler = async (event, context, callback) => {
   if(event.httpMethod === 'OPTIONS') {
     return {
