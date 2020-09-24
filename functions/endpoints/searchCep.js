@@ -8,7 +8,8 @@ exports.handler = async (event, context, callback) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
         "Access-Control-Allow-Headers": "Content-Type"
-      }
+      },
+      body: "Testeeee"
     });
   };
 
