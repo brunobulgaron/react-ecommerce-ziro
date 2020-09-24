@@ -2,14 +2,14 @@ import { get } from 'axios';
 
 exports.handler = async (event, context, callback) => {
   if(event.httpMethod === 'OPTIONS') {
-    return {
+    return callback(null, {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
         "Access-Control-Allow-Headers": "Content-Type"
       }
-    };
+    });
   };
 
   const cepFrontEnd = JSON.parse(event.body);
